@@ -1,0 +1,22 @@
+<apex:page action="{!setSalesReportURL}" standardController="Account" extensions="CognosReportControllerHttp" 
+    contentType="text/html" applyHtmlTag="false" showHeader="false" applyBodyTag="false" >
+
+    <apex:form >
+        <apex:pageBlock title="Date Selection" mode="edit">            
+            <apex:pageBlockSection columns="1" showHeader="false">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="Report Date" for="accts"></apex:outputLabel>
+                    <apex:selectList id="accts" value="{!reportDateIndex}" size="1" title="Report Date">
+                        <apex:selectOptions value="{!options}"></apex:selectOptions>
+                        <apex:actionSupport event="onchange" action="{!setSalesReportURLAfterChange}" reRender="outputTextPanel"/>
+                    </apex:selectList>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+
+    <apex:outputPanel id="outputTextPanel">
+        <apex:outputText escape="false" value="{!bodyOfUrl}"/>
+    </apex:outputPanel>
+    
+</apex:page>

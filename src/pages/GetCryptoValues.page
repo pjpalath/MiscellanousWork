@@ -1,0 +1,10 @@
+<apex:page controller="GetCryptoValuesController">
+  
+    <br/>
+    <br/>
+    <apex:outputText escape="false" value="{!unameCryptoValue}"/>
+    <br/>
+    <br/>
+    <apex:outputText escape="false" value="{!pwdCryptoValue}"/>
+  
+</apex:page>
